@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="vendegloginPanel" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxmaven.VendegLoginController">
+   <children>
+      <TabPane prefHeight="500.0" prefWidth="400.0" stylesheets="@../tabpanetest.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#generalTabActive" text="Általános">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                         <Pane layoutX="-8.0" layoutY="-7.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                             <children>
+                        
+                                                                     <Label fx:id="welcomeText" alignment="CENTER" layoutX="-1.0" prefHeight="75.0" prefWidth="401.0" styleClass="alert-success" stylesheets="@../bootstrapfx.css" text="Welcome!" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+                              <Label layoutX="32.0" layoutY="117.0" text="Felhasználónév:" />
+                              <Label layoutX="73.0" layoutY="168.0" text="Jogkör:" />
+                              <Label fx:id="usernameLabel" layoutX="145.0" layoutY="117.0" prefHeight="17.0" prefWidth="89.0" />
+                              <Label fx:id="EmpTypeLabel" layoutX="145.0" layoutY="168.0" prefHeight="17.0" prefWidth="89.0" />
+                              <ChoiceBox fx:id="toDeleteApn" layoutX="137.0" layoutY="220.0" prefWidth="150.0" />
+                              <Button layoutX="163.0" layoutY="291.0" mnemonicParsing="false" onAction="#deleteAppointmentUser" text="Időpont törlése" />
+                              <Label layoutX="57.0" layoutY="224.0" text="Időpontok:" />
+                             </children>
+                         </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Időpont foglalás">
+              <content>
+                <AnchorPane fx:id="n" minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <Pane prefHeight="465.0" prefWidth="400.0">
+                           <children>
+                              <DatePicker fx:id="newAppointmentDay" layoutX="113.0" layoutY="71.0" />
+                              <Button fx:id="createApnBtn" layoutX="209.0" layoutY="214.0" mnemonicParsing="false" onAction="#createAppointment" text="Uj idopont" visible="false" />
+                              <Label layoutX="54.0" layoutY="75.0" text="Nap:" />
+                              <Label fx:id="newApnHourLabel" layoutX="111.0" layoutY="170.0" text="Idő:" visible="false" />
+                              <ChoiceBox fx:id="newAppointmentDesc" layoutX="112.0" layoutY="118.0" onAction="#showAvbDates" prefHeight="29.0" prefWidth="175.0" />
+                              <Label layoutX="51.0" layoutY="124.0" text="Tipus:" />
+                              <ChoiceBox fx:id="newAppointmentHour" layoutX="159.0" layoutY="166.0" prefWidth="150.0" visible="false" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Beállítások">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <Pane prefHeight="466.0" prefWidth="400.0">
+                           <children>
+                              <TextField fx:id="changePhoneInput" layoutX="188.0" layoutY="86.0" visible="false" />
+                              <Label layoutX="53.0" layoutY="49.0" text="Cím váltás:" />
+                              <Label layoutX="14.0" layoutY="90.0" text="Telefonszám váltás:" />
+                              <Label layoutX="48.0" layoutY="128.0" text="Jelszó váltás:" />
+                              <RadioButton fx:id="changeAddressRadio" layoutX="149.0" layoutY="49.0" mnemonicParsing="false" onAction="#changeAdressActive" />
+                              <RadioButton fx:id="changePhoneRadio" layoutX="149.0" layoutY="90.0" mnemonicParsing="false" onAction="#changePhoneActive" />
+                              <RadioButton fx:id="changePasswordRadio" layoutX="149.0" layoutY="128.0" mnemonicParsing="false" onAction="#changePasswordActive" />
+                              <TextField fx:id="changeAddressInput" layoutX="188.0" layoutY="45.0" visible="false" />
+                              <Button fx:id="saveChanged" layoutX="234.0" layoutY="239.0" mnemonicParsing="false" onAction="#changeSave" text="Mentés" visible="false" />
+                              <Label fx:id="currentPasswordLabel" layoutX="90.0" layoutY="197.0" text="Jelenlegi jelszó:" visible="false" />
+                              <PasswordField fx:id="currentPasswordInput" layoutX="188.0" layoutY="193.0" visible="false" />
+                              <PasswordField fx:id="changePasswordInput" layoutX="188.0" layoutY="124.0" visible="false" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="365.0" mnemonicParsing="false" onAction="#closeButton" prefHeight="35.5" prefWidth="35.5" style="-fx-text-fill: black;" styleClass="btn-danger" stylesheets="@../bootstrapfx.css" text="X" />
+   </children>
+</Pane>
